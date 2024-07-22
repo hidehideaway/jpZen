@@ -1,0 +1,48 @@
+def generate_insurance_proposal(family_members: List[Person]) -> str:
+    logger.debug("Entering generate_insurance_proposal function")
+    try:
+        center = next((person for person in family_members if person.relation == "長男"), family_members[0])
+        logger.debug(f"Center person for proposal: {center}")
+        
+        prompt = f"""
+        {center.name}様（{center.age}歳）への生命保険提案:
+
+        # 家族構成:
+        {', '.join([f"{member.relation}: {member.name}（{member.age}歳）" for member in family_members if member.name != center.name])}
+
+        # 特記事項: {center.note}
+
+        # 依頼事項
+        上記の情報を基に、この方に適した生命保険の提案を行ってください。
+
+        # 提案の条件
+        提案には以下の4点を含めてください:
+        1. 家族構成に基づいた保障の必要性
+        2. 年齢に応じた保険の種類（例：医療保険、がん保険など）
+        3. 特記事項を考慮した具体的なアドバイス
+        4. 将来の家族の経済的安定を確保するための提案
+
+        # 提案文章の書き方
+        1. 1,2,3,4それぞれについて約50単語でまとめること
+        2. 提案は簡潔かつ具体的に、約400単語でまとめること
+        """
+        logger.debug(f"Generated prompt: {prompt}")
+
+        logger.debug("Calling OpenAI API")
+        response = openai.chat.completions.create(
+            model="gpt-4-turbo",
+            messages=[
+                {"role": "system", "content": "あなたは経験豊富な生命保険のコンサルタントです。顧客の状況に応じた適切な保険提案を行います。"},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=700
+        )
+        logger.debug("Received response from OpenAI API")
+
+        proposal = response.choices[0].message.content.strip()
+        logger.debug(f"Generated proposal: {proposal}")
+        return proposal
+    except Exception as e:
+        logger.error(f"Error in generate_insurance_proposal: {str(e)}")
+        logger.error(traceback.format_exc())
+        return "提案文の生成中にエラーが発生しました。"
