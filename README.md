@@ -40,4 +40,19 @@ npm start
   └─ 03_contract      : src/routes/contract.jsにより下記のhtmlが呼ばれる
     └─ index.html
     └─ script.js
+  └─ 04_contract      : src/routes/contract.jsにより下記のhtmlが呼ばれる
+    └─ index.html
+    └─ script.js
+  └─ 05_contract      : src/routes/contract.jsにより下記のhtmlが呼ばれる
+    └─ index.html
+    └─ script.js
+  └─ 06_contract      : src/routes/contract.jsにより下記のhtmlが呼ばれる
+    └─ index.html
+    └─ script.js
+  └─ 07_contract      : src/routes/contract.jsにより下記のhtmlが呼ばれる
+    └─ index.html
+    └─ script.js
+  └─ 08_contract      : src/routes/contract.jsにより下記のhtmlが呼ばれる
+    └─ index.html
+    └─ script.js
 ```
