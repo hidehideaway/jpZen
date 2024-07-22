@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h2, h3 {
+            color: #333;
+        }f
+        h4{
+            color: aqua;
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        th {
+            background-color: #032952;
+            color: white;
+
+        }
+        /*列幅の定義*/
+        th:nth-child(1), td:nth-child(1) { width: 20%; }
+        th:nth-child(2), td:nth-child(2) { width: 10%; }
+        th:nth-child(3), td:nth-child(3) { width: 35%; }
+        th:nth-child(4), td:nth-child(4) { width: 20%; }
+        th:nth-child(5), td:nth-child(5) { width: 15%; }
+        .checkbox {
+            width: 20px;
+            height: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #032952;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-button {
+        background-color: #1a237e; /* 濃い紺色 */
+        color: #ffffff;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .toggle-button:hover {
+        background-color: #283593; /* やや明るい紺色 */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .toggle-button:active {
+        background-color: #0d1657; /* より濃い紺色 */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transform: translateY(1px);
+    }
+    </style>
+</head>
+<body>
+    <h2>親と子供、配偶者を選択して下さい</h2>
+    <h3>
+        <button id="toggleOriginTable" class="toggle_button">参考</button>
+    </h3>
+    <div id="originTableContainer">
+        <div class="table-container">
+            <table id="originTable">
+                <thead>
+                    <tr>
+                        <th>氏名</th>
+                        <th>年齢</th>
+                        <th>住所</th>
+                        <th>性別</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h3>■ 子供を選択して下さい</h3>
+    <div class="table-container">
+        <table id="childrenTable">
+            <tr>
+                <th>氏名</th>
+                <th>年齢</th>
+                <th>住所</th>
+                <th>性別</th>
+                <th>選択</th>
+            </tr>
+        </table>
+    </div>
+
+    <h3>■ 親を選択して下さい</h3>
+    <div class="table-container">
+        <table id="parentsTable">
+            <tr>
+                <th>氏名</th>
+                <th>年齢</th>
+                <th>住所</th>
+                <th>性別</th>
+                <th>選択</th>
+            </tr>
+        </table>
+    </div>
+
+    <h3>■ 配偶者を選択して下さい</h3>
+    <div class="table-container">
+        <table id="spouseTable">
+            <tr>
+                <th>氏名</th>
+                <th>年齢</th>
+                <th>住所</th>
+                <th>性別</th>
+                <th>選択</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="button-container">
+        <button id="commitButton">確定</button>
+        <button id="closeButton">閉じる</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

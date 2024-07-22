@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家系図</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .family-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .generation {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .person {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="familyTreeContainer" class="family-tree"></div>
+    <script src="script.js"></script>
+    <button id="commitButton">登録</button>
+    <button id="closeButton">閉じる</button>
+</body>
+</html>
