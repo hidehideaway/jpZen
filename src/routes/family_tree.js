@@ -80,8 +80,8 @@ const Description = styled.pre`
   white-space: pre-line;
   word-wrap: break-word;
   padding: 20px;
-  max-height: 200px;
-  overflow-y:auto;
+  max-height: 200px;          // 縦の表示幅の設定
+  overflow-y:auto;            // y軸歩行にずれ込んだ際のスクロール機能
 `;
 
 const MemberCard = styled.div`

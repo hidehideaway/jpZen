@@ -329,15 +329,15 @@ export default function Register() {
                 <Logo src="/logo.png" alt="かんぽ生命" />
                 <div>KMP_01:山田太郎</div>
             </Header>
+            <AccordionButton
+                onClick={handleToggleOriginTable}
+                className= {isOriginTableExpanded ? 'active' : ''}>
+                ■ 追加先の世帯情報
+            </AccordionButton>
+            <AccordionPanel isExpanded={isOriginTableExpanded}>
+                <AccordionTable data={originData} includeCheckbox={false} />
+            </AccordionPanel>
             <MainContent>
-                    <AccordionButton
-                        onClick={handleToggleOriginTable}
-                        className= {isOriginTableExpanded ? 'active' : ''}>
-                        ■ 追加先の世帯情報
-                    </AccordionButton>
-                    <AccordionPanel isExpanded={isOriginTableExpanded}>
-                        <AccordionTable data={originData} includeCheckbox={false} />
-                    </AccordionPanel>
                     <SectionHeader>親と子供、配偶者を選択して下さい</SectionHeader>
 
                     <SectionHeader>■ 子供を選択して下さい</SectionHeader>
